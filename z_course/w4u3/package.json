@@ -1,0 +1,28 @@
+{
+	"name": "orders",
+	"version": "1.0.0",
+	"author": "SAP SE",
+	"private": true,
+	"scripts": {
+		"start": "ui5 serve",
+		"karma": "karma start",
+		"karma-ci": "karma start karma-ci.conf.js",
+		"watch": "npm run karma"
+	},
+	"dependencies": {
+		"@openui5/sap.ui.core": "^1.60",
+		"@openui5/sap.ui.layout": "^1.60",
+		"@openui5/sap.m": "^1.60",
+		"@openui5/sap.f": "^1.60",
+		"@openui5/sap.uxap": "^1.60",
+		"@openui5/sap.tnt": "^1.60",
+		"@openui5/themelib_sap_belize": "^1.60"
+	},
+	"devDependencies": {
+		"@ui5/cli": "^1.2.0",
+		"karma": "^4.0.1",
+		"karma-chrome-launcher": "^2.2.0",
+		"karma-coverage": "^1.1.2",
+		"karma-ui5": "^1.0.0"
+	}
+}
