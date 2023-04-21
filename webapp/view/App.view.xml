@@ -1,0 +1,11 @@
+<mvc:View
+    displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+    <Carousel>
+		<pages>
+			<Image src="https://placehold.co/600x400/orange/white" height="600px"/>
+			<Image src="https://placehold.co/600x400/green/white" height="600px"/>
+		</pages>
+	</Carousel>
+</mvc:View>
