@@ -8,7 +8,12 @@ sap.ui.define([
         onInit: function(){},
 
         onShowHello : function() {
-            MessageToast.show("Hello openSAP!");
+			// read msg from i18n model
+			const oBundle = this.getView().getModel("i18n").getResourceBundle();
+			const sRecipient = this.getView().getModel("helloPanel").getProperty("/recipient/name");
+			const sMsg = oBundle.getText("helloMsg", [sRecipient]);
+			// show message
+			MessageToast.show(sMsg);
         },
 
         onExit: function(){}
