@@ -9,6 +9,8 @@ sap.ui.define([
 
         onShowHello : function() {
             MessageToast.show("Hello openSAP!");
-        }
+        },
+
+        onExit: function(){}
     });
 })
