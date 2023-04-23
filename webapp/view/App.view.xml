@@ -1,20 +1,36 @@
 <mvc:View
-    controllerName="opensap.myapp.controller.App"
-    displayBlock="true"
-	xmlns="sap.m"
-	xmlns:core="sap.ui.core"
-	core:require="{ formatMessage: 'sap/base/strings/formatMessage' }"
-	xmlns:mvc="sap.ui.core.mvc">
-    <Carousel>
-		<pages>
-			<Image src="https://placehold.co/600x400/orange/white" height="600px"/>
-			<Image src="https://placehold.co/600x400/green/white" height="600px"/>
-		</pages>
-	</Carousel>
-    <Button text="{i18n>showHelloButtonText}" press="onShowHello"/>
-	<Input
-		value="{helloPanel>/recipient/name}"
-		description="{ parts:['i18n>helloMsg', 'helloPanel>/recipient/name'], formatter: 'formatMessage' }"
-		valueLiveUpdate="true"
-		width="60%"/>
+  controllerName="opensap.myapp.controller.App"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  core:require="{ formatMessage: 'sap/base/strings/formatMessage' }"
+  xmlns:mvc="sap.ui.core.mvc">
+  <App>
+    <pages>
+      <Page title="openSAP - Developing with SAPUI5">
+        <content>
+          <IconTabBar
+            id="idTopLevelIconTabBar">
+            <items>
+              <IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
+                <Carousel>
+                  <pages>
+                    <Image src="https://placehold.co/400x300/orange/white" height="300px" />
+                    <Image src="https://placehold.co/400x300/ligthblue/white"  height="300px" />
+                    <Image src="https://placehold.co/400x300/green/white" height="300px" />
+                  </pages>
+                </Carousel>
+                <Button text="{i18n>showHelloButtonText}" press="onShowHello" />
+                <Input
+                  value="{helloPanel>/recipient/name}"
+                  description="{ parts:['i18n>helloMsg', 'helloPanel>/recipient/name'], formatter: 'formatMessage' }"
+                  valueLiveUpdate="true"
+                  width="60%" />
+              </IconTabFilter>
+            </items>
+          </IconTabBar>
+        </content>
+      </Page>
+    </pages>
+  </App>
 </mvc:View>
