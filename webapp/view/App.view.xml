@@ -17,6 +17,16 @@
             class="sapUiResponsiveContentPadding">
             <items>
               <IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
+                <Label text="{i18n>helloValidatedNumber}" labelFor="helloNumber" />
+                <Input
+                  id="helloNumber"
+                  width="30%"
+                  value="{
+										path: 'helloPanel>/recipient/amount',
+										type: 'sap.ui.model.type.Float',
+										formatOptions: {minFractionDigits: 2},
+										constraints: {maximum : 3000}
+									}" />
                 <Carousel>
                   <pages>
                     <Image src="https://placehold.co/400x300/orange/white" height="300px" />
@@ -41,18 +51,18 @@
                   editable="true"
                   class="editableForm sapUiSmallMarginTopBottom">
                   <f:content>
-                    <Label text="{i18n>layoutFormName}" />
-                    <Input value="{address>/Name}" />
-                    <Label text="{i18n>layoutFormStreet}" />
-                    <Input value="{address>/Street}" />
-                    <Label text="{i18n>layoutFormHouseNumber}" />
-                    <Input value="{address>/HouseNumber}" />
-                    <Label text="{i18n>layoutFormZIPCode}" />
-                    <Input value="{address>/ZIPCode}" />
-                    <Label text="{i18n>layoutFormCity}" />
-                    <Input value="{address>/City}" />
-                    <Label text="{i18n>layoutFormCountry}" />
-                    <Select>
+                    <Label text="{i18n>layoutFormName}" labelFor="iName" />
+                    <Input value="{address>/Name}" id="iName" />
+                    <Label text="{i18n>layoutFormStreet}" labelFor="iStreet" />
+                    <Input value="{address>/Street}" id="iStreet" />
+                    <Label text="{i18n>layoutFormHouseNumber}" labelFor="iNumber" />
+                    <Input value="{address>/HouseNumber}" id="iNumber" />
+                    <Label text="{i18n>layoutFormZIPCode}" labelFor="iZip" />
+                    <Input value="{address>/ZIPCode}" id="iZip" />
+                    <Label text="{i18n>layoutFormCity}" labelFor="iCity" />
+                    <Input value="{address>/City}" id="iCity" />
+                    <Label text="{i18n>layoutFormCountry}" labelFor="iCountry" />
+                    <Select id="iCountry">
                       <items>
                         <core:Item text="{i18n>selectValueCountryGermany}" />
                         <core:Item text="{i18n>selectValueCountryUSA}" />
