@@ -84,6 +84,7 @@
                         intro="{ProductID}"
                         title="{Name}"
                         number="{Price}"
+                        numberState="{= ${Price} > 500 ? 'Error' : 'Success' }"
                         numberUnit="{CurrencyCode}"/>
                     </items>
                   </List>
