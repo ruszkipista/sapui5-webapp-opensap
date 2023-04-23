@@ -13,6 +13,7 @@
         <content>
           <IconTabBar
             id="idTopLevelIconTabBar"
+            selectedKey="db"
             class="sapUiResponsiveContentPadding">
             <items>
               <IconTabFilter id="start" text="{i18n>gettingStartedFilter}">
@@ -70,6 +71,23 @@
                     icon="sap-icon://save"
                     text="{i18n>layoutDraftButton}" />
                 </Toolbar>
+              </IconTabFilter>
+              <IconTabFilter
+                text="{i18n>dataBindingFilter}"
+                key="db">
+                <content>
+                  <List
+                    headerText="{i18n>productList}"
+                    items="{/ProductSet}">
+                    <items>
+                      <ObjectListItem
+                        intro="{ProductID}"
+                        title="{Name}"
+                        number="{Price}"
+                        numberUnit="{CurrencyCode}"/>
+                    </items>
+                  </List>
+                </content>
               </IconTabFilter>
             </items>
           </IconTabBar>
