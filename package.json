@@ -1,0 +1,14 @@
+{
+  "name": "webapp",
+  "private": true,
+  "version": "1.0.0",
+  "author": "SAP SE",
+  "description": "UI5 Demo App - OpenSAP course UI51",
+  "scripts": {
+    "start": "ui5 serve",
+    "build": "ui5 build"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3.1.1"
+  }
+}
