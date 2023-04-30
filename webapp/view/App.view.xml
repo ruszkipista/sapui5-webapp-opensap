@@ -44,13 +44,13 @@
                   valueLiveUpdate="true"
                   width="60%" />
               </IconTabFilter>
-              <IconTabFilter id="layouts" text="{i18n>layoutFilter}">
+              <IconTabFilter id="layouts" key="layouts" text="{i18n>layoutFilter}">
                 <MessageStrip
                   type="Information"
                   showIcon="true"
                   text="Here's a Form Layout inside an Icon Tab Bar …" />
                 <f:SimpleForm id="simpleFormChange"
-                  title="Address"
+                  title="{i18n>layoutFormAddress}"
                   editable="true"
                   class="editableForm sapUiSmallMarginTopBottom">
                   <f:content>
@@ -65,11 +65,12 @@
                     <Label text="{i18n>layoutFormCity}" labelFor="iCity" />
                     <Input value="{address>/City}" id="iCity" />
                     <Label text="{i18n>layoutFormCountry}" labelFor="iCountry" />
-                    <Select id="iCountry">
+                    <Select id="iCountry" selectedKey="{address>/Country}">
                       <items>
-                        <core:Item text="{i18n>selectValueCountryGermany}" />
-                        <core:Item text="{i18n>selectValueCountryUSA}" />
-                        <core:Item text="{i18n>selectValueCountryEngland}" />
+                        <core:Item key="{i18n>selectValueCountryGermany}" text="{i18n>selectValueCountryGermany}" />
+                        <core:Item key="{i18n>selectValueCountryHungary}" text="{i18n>selectValueCountryHungary}" />
+                        <core:Item key="{i18n>selectValueCountryUSA}" text="{i18n>selectValueCountryUSA}" />
+                        <core:Item key="{i18n>selectValueCountryEngland}" text="{i18n>selectValueCountryEngland}" />
                       </items>
                     </Select>
                   </f:content>
@@ -84,6 +85,21 @@
                     icon="sap-icon://save"
                     text="{i18n>layoutDraftButton}" />
                 </Toolbar>
+                <Panel
+									class="sapUiMediumMarginTop"
+									width="auto"
+									headerText="{i18n>mapTitle}">
+                  <core:HTML content="{
+										parts: [
+											'address>/HouseNumber',
+											'address>/Street',
+											'address>/ZIPCode',
+											'address>/City',
+											'address>/Country'
+										],
+										formatter: '.formatter.formatMapUrl'
+									}" />
+								</Panel>
               </IconTabFilter>
               <IconTabFilter
                 text="{i18n>dataBindingFilter}"
@@ -146,7 +162,7 @@
                         <Text text="{i18n>productID}: {ProductID}"/>
                         <Text text="{i18n>productName}: {Name}"/>
                         <Text text="{i18n>productDescription}: {Description}"/>
-                        <HBox alignItems="Left">
+                        <HBox alignItems="Start">
                           <Text text="{i18n>productPrice}: " />
                           <Text text="{parts: [
                                 {path: 'Price'},
