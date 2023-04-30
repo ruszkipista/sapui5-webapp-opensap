@@ -94,12 +94,15 @@
                         path : 'Category',
                         group : true
                       }
-                    }">
+                    }"
+                   	growing="true"
+	                  growingThreshold="5"
+	                  growingScrollToLoad="false">
                     <headerToolbar>
                       <Toolbar>
                         <Title text="{i18n>productListTitle}"/>
-                        <ToolbarSpacer/>
                         <SearchField width="50%" search="onFilterProducts"/>
+                        <ToolbarSpacer/>
                       </Toolbar>
                     </headerToolbar>
                     <items>
