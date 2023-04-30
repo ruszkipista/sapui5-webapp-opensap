@@ -109,6 +109,9 @@
                     id="productsList"
                     items="{
                       path : '/ProductSet',
+                        parameters : {
+												  expand: 'ToSupplier'
+											},
                       sorter : {
                         path : 'Category',
                         group : true
@@ -152,6 +155,11 @@
                               formatter : '.formatter.delivery'
                             }" />
                         </firstStatus>
+                        <secondStatus>
+													<ObjectStatus
+														title="{i18n>statusDeliveryFrom}"
+														text="{ToSupplier/Address/City}"/>
+												</secondStatus>
                       </ObjectListItem>
                     </items>
                   </List>
