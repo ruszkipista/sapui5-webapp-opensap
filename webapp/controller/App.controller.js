@@ -46,7 +46,7 @@ sap.ui.define([
 			var sPath = oContext.getPath();
 			var oProductDetailPanel = this.byId("productDetailsPanel");
 	
-			oProductDetailPanel.bindElement({ path: sPath });
+			oProductDetailPanel.bindElement(sPath);
 			oProductDetailPanel.setVisible(true); 
 		},
 
