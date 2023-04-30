@@ -37,7 +37,10 @@
                 <Button text="{i18n>showHelloButtonText}" press="onShowHello" />
                 <Input
                   value="{helloPanel>/recipient/name}"
-                  description="{ parts:['i18n>helloMsg', 'helloPanel>/recipient/name'], formatter: 'formatMessage' }"
+                  description="{ 
+                    parts:['i18n>helloMsg', 'helloPanel>/recipient/name'],
+                    formatter: 'formatMessage'
+                  }"
                   valueLiveUpdate="true"
                   width="60%" />
               </IconTabFilter>
@@ -95,21 +98,21 @@
                         group : true
                       }
                     }"
-                   	growing="true"
-	                  growingThreshold="5"
-	                  growingScrollToLoad="false">
+                    growing="true"
+                    growingThreshold="5"
+                    growingScrollToLoad="false">
                     <headerToolbar>
                       <Toolbar>
-                        <Title text="{i18n>productListTitle}"/>
-                        <SearchField width="50%" search="onFilterProducts"/>
-                        <ToolbarSpacer/>
+                        <Title text="{i18n>productListTitle}" />
+                        <SearchField width="50%" search="onFilterProducts" />
+                        <ToolbarSpacer />
                       </Toolbar>
                     </headerToolbar>
                     <items>
                       <ObjectListItem
                         intro="{ProductID}"
                         title="{Name}"
-												number="{
+                        number="{
 													parts: [
 														{path: 'Price'},
 														{path: 'CurrencyCode'}
@@ -120,19 +123,41 @@
 													}
 												}"
                         numberState="{= ${Price} > 500 ? 'Error' : 'Success' }"
-                        numberUnit="{CurrencyCode}">
+                        numberUnit="{CurrencyCode}"
+                        press="onItemSelected"
+                        type="Active">
                         <firstStatus>
-													<ObjectStatus text="{
-														parts: [
-															{path: 'WeightUnit'},
-															{path: 'WeightMeasure'}
-														],
-														formatter : '.formatter.delivery'
-													}"/>
-												</firstStatus>
+                          <ObjectStatus
+                            text="{
+                              parts: [
+                                {path: 'WeightUnit'},
+                                {path: 'WeightMeasure'}
+                              ],
+                              formatter : '.formatter.delivery'
+                            }" />
+                        </firstStatus>
                       </ObjectListItem>
                     </items>
                   </List>
+                  <Panel id="productDetailsPanel"
+                    headerText="{i18n>productDetailPanelHeader}"
+                    visible="false">
+                      <l:Grid>
+                        <Text text="{i18n>productID}: {ProductID}"/>
+                        <Text text="{i18n>productName}: {Name}"/>
+                        <Text text="{i18n>productDescription}: {Description}"/>
+                        <HBox alignItems="Left">
+                          <Text text="{i18n>productPrice}: " />
+                          <Text text="{parts: [
+                                {path: 'Price'},
+                                {path: 'CurrencyCode'}
+                              ],
+                              type: 'sap.ui.model.type.Currency',
+                              formatOptions: { showMeasure: true }
+                            }" />
+                        </HBox>
+                      </l:Grid>
+                  </Panel>
                 </content>
               </IconTabFilter>
             </items>
